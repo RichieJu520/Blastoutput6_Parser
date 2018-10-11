@@ -8,9 +8,10 @@ Created on Tue Oct 09 15:10:38 2018
 a = {}
 b = []
 
-SampleID = 'example'
+filename1 = 'example.ublast'
+filename2 = 'example.faa'
 
-filename1 = SampleID+'.ublast'
+
 for line in open(filename ,'r'):
     lis = line.strip().split('\t')
     try:
@@ -30,7 +31,6 @@ for item in c:
     
 f1.close()
 
-filename2 = SampleID+'.faa'
 print 'Extracting unifnished DNA sequences from ID: ' +  b[-2]
 
 i, j, k = 0, 0, 0
@@ -55,8 +55,3 @@ print round(float(k)/j, 2)*100, '% unfinished sequences to be continued!'
 f2.close()
 
 print 'DONE!'
-        
-
-
-    
-    
