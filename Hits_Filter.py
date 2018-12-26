@@ -21,14 +21,14 @@ i, j = 0, 0
 a = {}
 for line in open(X2,'r'):
     i+=1
-    
+    ID = line.strip()[1:]
     if i ==1 and line.startswith('>'):
-        ID = line.strip()[1:]
+        ID = line.rstrip().split(' ')[0][1:]
         continue
     
     if line.startswith('>'):
         a[ID] = j
-        ID = line.strip()[1:]
+        ID = line.rstrip().split(' ')[0][1:]
         j = 0
     else:
         j+=len(line.strip())
@@ -49,7 +49,8 @@ for line in open(X1,'r'):
     identity = float(lis[2])
     align_num = float(lis[3])
     try:
-        fraction = float(lis[3])/a[lis[0]]
+        ###fraction = float(lis[3])/a[lis[0]]  ### blastN or blastP
+        fraction = 3*float(lis[3])/a[lis[0]]  ### blastX
     except KeyError:
         continue
     evalue = float(lis[10])
